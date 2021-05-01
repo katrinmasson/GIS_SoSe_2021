@@ -1,17 +1,16 @@
 html body{
 	font-family: "sans-serif";
-    font-size: 30px;
-	background: rgb(133, 86, 180);
-	width: 1280px;
-	height: 800px;
-	text-align: center;
-	margin: 0;
-	padding:0; 
+    font-size: 20px;
+	background: rgb(73, 64, 82);
+	background-color: rgb(45, 45, 51);
+    align-items: center;
+    justify-content: center;
+    display: grid;
+	overflow: hidden; 
 }
 
 h2{
-	text-align: center;
-	font-size: 2em;	
+	text-align: center;	
 }
 
 /* Memory */
@@ -26,6 +25,7 @@ h2{
 	flex-wrap: wrap;
 	justify-content: center; 
 	text-align: center;
+	border: none;
 }
 
 /* Kartenstyle */
@@ -38,13 +38,7 @@ h2{
 	font-size: 3.75em;
 }
 
-/* Kartenstati */
 .hidden{
-	background-color: black;
-	cursor: pointer;
-}
-
-.hidden p{
 	display: none;
 }
 
@@ -56,6 +50,8 @@ h2{
 	visibility: hidden;
 }
 
-.taken p{
-	display: none;
+button {
+	background-color: rgb(68, 45, 85);
+	width: 100px;
+	height: 40px;
 }

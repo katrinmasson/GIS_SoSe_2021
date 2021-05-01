@@ -16,11 +16,11 @@ namespace MemoryGame {
         startMemory.addEventListener("click", main);
     }
    
-    // FormData - Objekt : Werte des Formulars auswerten
+    // FormData - Objekte : Werte des Formulars auswerten
     let formData: FormData;
     let size: number;
-    let backGColor: FormDataEntryValue | null; 
-    let backSColor: FormDataEntryValue | null;
+    let backgroundColor: FormDataEntryValue | null; 
+    let backgroundCardColor: FormDataEntryValue | null;
     let fontColor: FormDataEntryValue | null;
     let fontStyle: FormDataEntryValue | null;
 
@@ -36,20 +36,20 @@ namespace MemoryGame {
 
         cards.push(openCard);
         leftPairs.push(openCard);
-        openCard.addEventListener("click", handleCard);
+        //openCard.addEventListener("click", handleCard); // --> muss noch erstellt werden !
 
         // Kartengröße
         openCard.style.width = size + "px";
         openCard.style.height = size + "px";
 
         // Hintergrundfarbe des Spielfelds
-        if (backGColor) { 
-            openCard.style.backgroundColor = backGColor.toString();
+        if (backgroundColor) { 
+            openCard.style.backgroundColor = backgroundColor.toString();
         }
         
         // Hintergrundfarbe der Kartenrückseite
-        if (backSColor) { 
-            openCard.style.background = backSColor.toString();
+        if (backgroundCardColor) { 
+            openCard.style.background = backgroundCardColor.toString();
         }
 
         // Schriftfarbe
@@ -64,24 +64,6 @@ namespace MemoryGame {
 
     }
 
-    function handleCard(_event: Event): void {
-        let target: HTMLElement = <HTMLElement>_event.target;
-        if (target.classList.contains("card")) {
-            turnedCards++;
-            if (!(turnedCards > 2) && target.classList.contains("hidden") && target != vergleichArray[0]) {
-                if (target.classList.contains("hidden")) {
-                    target.classList.remove("hidden");
-                    target.classList.add("open");
-                    vergleichArray.push(target);
-                }
-            } else {
-                turnedCards--;
-            }
-            if (turnedCards == 2) {
-                setTimeout(compareCards, 2000);
-            }
-        }
-    }
     // Vergleich der Karten
     function compareCards(): void {
         if (vergleichArray[0].innerHTML == vergleichArray[1].innerHTML) {
@@ -125,7 +107,7 @@ namespace MemoryGame {
         let fieldset: HTMLFormElement = <HTMLFormElement>document.querySelector(".formular");
         if (fieldset.classList.contains("visible")) {
             fieldset.classList.remove("visible");
-            fieldset.classList.add("is-hidden");
+            fieldset.classList.add(".hidden");
         }
 
         //Karten erzeugen
