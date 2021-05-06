@@ -13,11 +13,11 @@ var MemoryGame;
         var startMemory = document.querySelector(".start");
         startMemory.addEventListener("click", main);
     }
-    // FormData - Objekt : Werte des Formulars auswerten
+    // FormData - Objekte : Werte des Formulars auswerten
     var formData;
     var size;
-    var backGColor;
-    var backSColor;
+    var backgroundColor;
+    var backgroundCardColor;
     var fontColor;
     var fontStyle;
     //Karten erstellen    
@@ -29,17 +29,17 @@ var MemoryGame;
         openCard.classList.add("hidden");
         cards.push(openCard);
         leftPairs.push(openCard);
-        openCard.addEventListener("click", handleCard);
+        //openCard.addEventListener("click", handleCard); // --> muss noch erstellt werden !
         // Kartengröße
         openCard.style.width = size + "px";
         openCard.style.height = size + "px";
         // Hintergrundfarbe des Spielfelds
-        if (backGColor) {
-            openCard.style.backgroundColor = backGColor.toString();
+        if (backgroundColor) {
+            openCard.style.backgroundColor = backgroundColor.toString();
         }
         // Hintergrundfarbe der Kartenrückseite
-        if (backSColor) {
-            openCard.style.background = backSColor.toString();
+        if (backgroundCardColor) {
+            openCard.style.background = backgroundCardColor.toString();
         }
         // Schriftfarbe
         if (fontColor) {
@@ -48,25 +48,6 @@ var MemoryGame;
         // Schriftart
         if (fontStyle) {
             openCard.style.fontFamily = fontStyle.toString();
-        }
-    }
-    function handleCard(_event) {
-        var target = _event.target;
-        if (target.classList.contains("card")) {
-            turnedCards++;
-            if (!(turnedCards > 2) && target.classList.contains("hidden") && target != vergleichArray[0]) {
-                if (target.classList.contains("hidden")) {
-                    target.classList.remove("hidden");
-                    target.classList.add("open");
-                    vergleichArray.push(target);
-                }
-            }
-            else {
-                turnedCards--;
-            }
-            if (turnedCards == 2) {
-                setTimeout(compareCards, 2000);
-            }
         }
     }
     // Vergleich der Karten
@@ -108,7 +89,7 @@ var MemoryGame;
         var fieldset = document.querySelector(".formular");
         if (fieldset.classList.contains("visible")) {
             fieldset.classList.remove("visible");
-            fieldset.classList.add("is-hidden");
+            fieldset.classList.add(".hidden");
         }
         //Karten erzeugen
         for (var i = 0; i < pairs; i++) {
