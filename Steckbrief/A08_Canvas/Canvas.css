@@ -1,9 +1,19 @@
 canvas {
     border: 1px solid black;
+    width: 50%;
+    height: 50%;
 }
 
 body {
     width:  100%;
     height: 100%;
     margin: 0;
+}
+
+.reload {
+    position: fixed;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    background-color: rgb(173, 82, 82);
 }
