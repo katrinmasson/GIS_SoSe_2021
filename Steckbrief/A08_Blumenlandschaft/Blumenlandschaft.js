@@ -16,10 +16,10 @@ var blumenlandschaft;
         drawCloud({ x: 500, y: 125 }, { x: 300, y: 40 });
         drawMountain({ x: -500, y: horizon }, 75, 240, "grey", "white");
         drawMountain({ x: -500, y: horizon }, 50, 170, "black", "lightgrey");
-        drawBush({ x: 140, y: 300 }, { x: 100, y: 50 });
-        drawFlowerRed(500, 590);
-        drawFlowerPink(500, 590);
-        drawFlowerPurple(500, 590);
+        drawBush({ x: 50, y: 300 }, { x: 100, y: 50 });
+        drawFlowerRed(500, -200);
+        drawFlowerPink(500, -200);
+        drawFlowerPurple(500, -200);
     }
     function drawBackground() {
         console.log("Background");
@@ -154,7 +154,7 @@ var blumenlandschaft;
         }
     }
     function drawFlowerPink(_x, _y) {
-        for (var flowers = 0; flowers < 10; flowers++) {
+        for (var flowers = 0; flowers < 8; flowers++) {
             var x = 200 * Math.random();
             var y = 80 * Math.random();
             //Stiel
@@ -172,13 +172,13 @@ var blumenlandschaft;
                 crc2.rotate(Math.PI * 2 / 5);
                 //Blütenfarbe
                 var gradient = crc2.createLinearGradient(0, 0, 0, -40);
-                gradient.addColorStop(0.1, "pink");
-                gradient.addColorStop(0.7, "white");
+                gradient.addColorStop(0.5, "pink");
+                gradient.addColorStop(0.8, "white");
                 // Blüten
                 crc2.beginPath();
                 crc2.moveTo(0, 0);
                 crc2.lineTo(-5, -10);
-                crc2.bezierCurveTo(-10, -20, 10, -20, 10, -10);
+                crc2.bezierCurveTo(-10, -20, 10, -20, -10, -10);
                 crc2.closePath();
                 crc2.fillStyle = gradient;
                 crc2.fill();
@@ -195,7 +195,7 @@ var blumenlandschaft;
         }
     }
     function drawFlowerPurple(_x, _y) {
-        for (var flowers = 0; flowers < 10; flowers++) {
+        for (var flowers = 0; flowers < 8; flowers++) {
             var x = 200 * Math.random();
             var y = 80 * Math.random();
             //Stiel
