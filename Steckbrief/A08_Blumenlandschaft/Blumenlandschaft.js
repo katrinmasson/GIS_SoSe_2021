@@ -17,9 +17,9 @@ var blumenlandschaft;
         drawMountain({ x: -500, y: horizon }, 75, 240, "grey", "white");
         drawMountain({ x: -500, y: horizon }, 50, 170, "black", "lightgrey");
         drawBush({ x: 50, y: 300 }, { x: 100, y: 50 });
-        drawFlowerRed(500, -200);
-        drawFlowerPink(500, -200);
-        drawFlowerPurple(500, -200);
+        drawFlowersRed(500, -200);
+        drawFlowersPink(500, -200);
+        drawFlowersPurple(500, -200);
     }
     function drawBackground() {
         console.log("Background");
@@ -112,7 +112,7 @@ var blumenlandschaft;
         }
         crc2.fill(particle);
     }
-    function drawFlowerRed(_x, _y) {
+    function drawFlowersRed(_x, _y) {
         for (var flowers = 0; flowers < 10; flowers++) {
             var x = -240 * Math.random();
             var y = 100 * Math.random();
@@ -153,7 +153,7 @@ var blumenlandschaft;
             crc2.fill();
         }
     }
-    function drawFlowerPink(_x, _y) {
+    function drawFlowersPink(_x, _y) {
         for (var flowers = 0; flowers < 8; flowers++) {
             var x = 200 * Math.random();
             var y = 80 * Math.random();
@@ -194,7 +194,7 @@ var blumenlandschaft;
             crc2.fill();
         }
     }
-    function drawFlowerPurple(_x, _y) {
+    function drawFlowersPurple(_x, _y) {
         for (var flowers = 0; flowers < 8; flowers++) {
             var x = 200 * Math.random();
             var y = 80 * Math.random();
