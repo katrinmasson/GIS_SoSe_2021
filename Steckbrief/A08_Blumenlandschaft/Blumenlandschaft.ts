@@ -27,9 +27,8 @@ namespace blumenlandschaft {
         drawMountain({ x: -500, y: horizon }, 75, 240, "grey", "white");
         drawMountain({ x: -500, y: horizon }, 50, 170, "black", "lightgrey");
         drawBush({ x: 50, y: 300 }, { x: 100, y: 50 });
-        drawFlowersRed(500, -200);
-        drawFlowersPink(500, -200);
-        drawFlowersPurple(500, -200);
+        drawFlowersRed(0, 500);
+        drawFlowersPurple(0, 500);
     }
 
     function drawBackground(): void {
@@ -166,7 +165,7 @@ namespace blumenlandschaft {
             // Blüten
             crc2.translate(0, -40);
 
-            for (let flowerPetals: number = 0; flowerPetals < 15; flowerPetals++) {
+            for (let flowerPetals: number = 0; flowerPetals < 5; flowerPetals++) {
                 crc2.rotate(Math.PI * 2 / 5);
                 //Blütenfarbe
                 let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, -40);
@@ -189,50 +188,6 @@ namespace blumenlandschaft {
             crc2.arc(0, 0, 5, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fillStyle = "black";
-            crc2.fill();
-        }
-    }
-
-    function drawFlowersPink(_x: number, _y: number): void {
-        for (let flowers: number = 0; flowers < 8; flowers++) {
-            let x: number = 200 * Math.random();
-            let y: number = 80 * Math.random();
-
-            //Stiel
-            crc2.translate(x, y);
-            crc2.beginPath();
-            crc2.moveTo(0, 0);
-            crc2.lineTo(0, -30);
-            crc2.closePath();
-            crc2.strokeStyle = "darkgreen";
-            crc2.stroke();
-            crc2.save();
-            // Blüten
-            crc2.translate(0, -40);
-
-            for (let flowerPetals: number = 0; flowerPetals < 15; flowerPetals++) {
-                crc2.rotate(Math.PI * 2 / 5);
-                //Blütenfarbe
-                let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, -40);
-                gradient.addColorStop(0.5, "pink");
-                gradient.addColorStop(0.8, "white");
-                // Blüten
-                crc2.beginPath();
-                crc2.moveTo(0, 0);
-                crc2.lineTo(-5, -10);
-                crc2.bezierCurveTo(-10, -20, 10, -20, -10, -10);
-                crc2.closePath();
-                crc2.fillStyle = gradient;
-                crc2.fill();
-            }
-            crc2.restore();
-            // Mitte
-            crc2.save();
-            crc2.translate(0, -40);
-            crc2.beginPath();
-            crc2.arc(0, 0, 5, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fillStyle = "yellow";
             crc2.fill();
         }
     }

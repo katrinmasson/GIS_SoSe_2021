@@ -296,7 +296,6 @@ namespace Blumenwiese {
         }
         crc2.restore();
 
-        //Farbe
         crc2.save();
         crc2.translate(posX, posY);
         crc2.beginPath();
@@ -319,8 +318,6 @@ namespace Blumenwiese {
         crc2.strokeStyle = "darkgreen";
         crc2.fillStyle = "darkgreen";
         crc2.fillRect(posX, posY, 4, 70);
-
-        //
         crc2.moveTo(posX, posY + 50);
         crc2.stroke();
         crc2.fill();

@@ -239,7 +239,6 @@ var Blumenwiese;
             Blumenwiese.crc2.fill();
         }
         Blumenwiese.crc2.restore();
-        //Farbe
         Blumenwiese.crc2.save();
         Blumenwiese.crc2.translate(posX, posY);
         Blumenwiese.crc2.beginPath();
@@ -258,7 +257,6 @@ var Blumenwiese;
         Blumenwiese.crc2.strokeStyle = "darkgreen";
         Blumenwiese.crc2.fillStyle = "darkgreen";
         Blumenwiese.crc2.fillRect(posX, posY, 4, 70);
-        //
         Blumenwiese.crc2.moveTo(posX, posY + 50);
         Blumenwiese.crc2.stroke();
         Blumenwiese.crc2.fill();
