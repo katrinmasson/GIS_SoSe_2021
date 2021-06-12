@@ -21,9 +21,9 @@ var A_10_2;
         }
         drawHome();
         imgData = A_10_2.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        createBee(10);
+        createBee(20);
         createCloud();
-        window.setInterval(update, 50);
+        window.setInterval(update, 20);
     }
     //Background
     function drawBackground() {
@@ -225,7 +225,7 @@ var A_10_2;
     }
     //Bees
     function createBee(_amount) {
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 20; i++) {
             var bee = new A_10_2.Bee();
             moveables.push(bee);
         }
@@ -233,7 +233,7 @@ var A_10_2;
     //Clouds
     function createCloud() {
         for (var i = 0; i < 1; i++) {
-            var cloud = new A_10_2.Cloud(0.5);
+            var cloud = new A_10_2.Cloud(1);
             moveables.push(cloud);
         }
     }

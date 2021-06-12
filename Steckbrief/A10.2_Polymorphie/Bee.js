@@ -20,20 +20,20 @@ var A_10_2;
             if (_position)
                 _this.position = _position;
             else
-                _this.position = new A_10_2.Vector(300, 400);
-            _this.velocity = new A_10_2.Vector(500, 0);
+                _this.position = new A_10_2.Vector(280, 600);
+            _this.velocity = new A_10_2.Vector(50, 0);
             _this.velocity.random(120, 20);
             return _this;
         }
         Bee.prototype.draw = function () {
             A_10_2.crc2.save();
             A_10_2.crc2.beginPath();
-            //körper
+            //Körper
             A_10_2.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             A_10_2.crc2.fillStyle = "#FFCC33";
             A_10_2.crc2.fill();
             A_10_2.crc2.closePath();
-            //ssreifen
+            //Streifen
             A_10_2.crc2.save();
             A_10_2.crc2.beginPath();
             A_10_2.crc2.moveTo(this.position.x, this.position.y + 10);
@@ -43,7 +43,7 @@ var A_10_2;
             A_10_2.crc2.stroke();
             A_10_2.crc2.closePath();
             A_10_2.crc2.restore();
-            //flügel
+            //Flügel
             A_10_2.crc2.save();
             A_10_2.crc2.beginPath();
             A_10_2.crc2.arc(this.position.x - 2, this.position.y - 9, 5, 0, 2 * Math.PI);
@@ -54,7 +54,7 @@ var A_10_2;
             A_10_2.crc2.lineWidth = 1;
             A_10_2.crc2.stroke();
             A_10_2.crc2.restore();
-            //flügel
+            //Flügel
             A_10_2.crc2.save();
             A_10_2.crc2.beginPath();
             A_10_2.crc2.arc(this.position.x + 2, this.position.y - 4, 5, 0, 2 * Math.PI);

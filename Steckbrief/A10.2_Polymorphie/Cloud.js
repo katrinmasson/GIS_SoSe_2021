@@ -20,28 +20,29 @@ var A_10_2;
             if (_position)
                 _this.position = _position;
             else
-                _this.position = new A_10_2.Vector(50, 100);
+                _this.position = new A_10_2.Vector(50, 80);
             _this.velocity = new A_10_2.Vector(100, 0);
             _this.size = _size;
             return _this;
         }
         Cloud.prototype.draw = function () {
-            var nParticles = 140;
-            var radiusParticle = 40;
-            var particle = new Path2D();
-            var gradient = A_10_2.crc2.createRadialGradient(0, 0, 0, 0, 0, radiusParticle);
-            particle.arc(0, 0, radiusParticle, 0, 2 * Math.PI);
-            gradient.addColorStop(0, "HSLA(0, 100%, 100%, 0.5)");
-            gradient.addColorStop(1, "HSLA(0, 100%, 100%, 0)");
+            var grd = A_10_2.crc2.createLinearGradient(0, 0, 0, 250); //create Gradient
+            grd.addColorStop(0, "#FFFFFF");
+            grd.addColorStop(1, "#A9E2F3");
             A_10_2.crc2.save();
             A_10_2.crc2.translate(this.position.x, this.position.y);
-            A_10_2.crc2.fillStyle = gradient;
-            for (var drawn = 0; drawn < nParticles; drawn++) {
-                A_10_2.crc2.save();
-                A_10_2.crc2.translate((Math.random() - 0.5) * this.position.x, -(Math.random() * this.position.y));
-                A_10_2.crc2.fill(particle);
-                A_10_2.crc2.restore();
-            }
+            A_10_2.crc2.scale(this.size, this.size);
+            A_10_2.crc2.beginPath();
+            A_10_2.crc2.arc(this.position.x, this.position.y, 60, Math.PI * 0.5, Math.PI * 1.5);
+            A_10_2.crc2.arc(this.position.x + 70, this.position.y - 60, 70, Math.PI * 1, Math.PI * 1.85);
+            A_10_2.crc2.arc(this.position.x + 152, this.position.y - 45, 50, Math.PI * 1.37, Math.PI * 1.91);
+            A_10_2.crc2.arc(this.position.x + 200, this.position.y, 60, Math.PI * 1.5, Math.PI * 0.5);
+            A_10_2.crc2.moveTo(this.position.x + 200, this.position.y + 60);
+            A_10_2.crc2.lineTo(this.position.x, this.position.y + 60);
+            //crc2.strokeStyle = "white";
+            A_10_2.crc2.stroke();
+            A_10_2.crc2.fillStyle = grd;
+            A_10_2.crc2.fill();
             A_10_2.crc2.restore();
         };
         return Cloud;

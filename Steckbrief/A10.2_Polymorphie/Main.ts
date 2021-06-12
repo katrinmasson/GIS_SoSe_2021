@@ -27,10 +27,10 @@ namespace A_10_2 {
         drawHome();
         
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        createBee(10);
+        createBee(20);
 
         createCloud();
-        window.setInterval(update, 50);
+        window.setInterval(update, 20);
     }
 
         //Background
@@ -274,7 +274,7 @@ namespace A_10_2 {
    
     //Bees
     function createBee(_amount: number): void {
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < 20; i++) {
             let bee: Moveable = new Bee();
             moveables.push(bee);
         }
@@ -283,7 +283,7 @@ namespace A_10_2 {
     //Clouds
 function createCloud(): void {
     for(let i: number = 0; i < 1; i++) {
-        let cloud: Moveable = new Cloud(0.5);
+        let cloud: Moveable = new Cloud(1);
         moveables.push(cloud);
     }
 }
