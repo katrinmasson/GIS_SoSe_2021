@@ -3,6 +3,7 @@ var A_10_2;
     window.addEventListener("load", handleLoad);
     var golden = 0.62;
     var imgData;
+    var flowerArray = [];
     var moveables = [];
     function handleLoad(_event) {
         var canvas = document.querySelector("canvas");
@@ -15,10 +16,8 @@ var A_10_2;
         drawMountains(new A_10_2.Vector(0, horizon), 95, 250, "grey", "white");
         drawMountains(new A_10_2.Vector(0, horizon), 60, 170, "darkgrey", "lightgrey");
         drawTree(new A_10_2.Vector(150, 500));
-        for (var i = 0; i < 10; i++) {
-            drawFlowerRed();
-            drawFlowerYellow();
-        }
+        createFlower();
+        drawFlower();
         drawHome();
         imgData = A_10_2.crc2.getImageData(0, 0, canvas.width, canvas.height);
         createBee(20);
@@ -120,6 +119,30 @@ var A_10_2;
         A_10_2.crc2.fill();
         A_10_2.crc2.closePath();
     }
+    function createFlower() {
+        for (var i = 0; i < 10; i++) {
+            var flower = new A_10_2.Flower();
+            flowerArray.push(flower);
+        }
+        for (var i = 0; i < 10; i++) {
+            var flower2 = new A_10_2.Flower();
+            flowerArray.push(flower2);
+        }
+    }
+    function drawFlower() {
+        for (var _i = 0, flowerArray_1 = flowerArray; _i < flowerArray_1.length; _i++) {
+            var flower = flowerArray_1[_i];
+            var randomX = Math.floor(Math.random() * 900);
+            var randomY = Math.floor(Math.random() * 250);
+            flower.draw(randomX + 50, randomY + 400);
+        }
+        for (var _a = 0, flowerArray_2 = flowerArray; _a < flowerArray_2.length; _a++) {
+            var flower2 = flowerArray_2[_a];
+            var randomX = Math.floor(Math.random() * 900);
+            var randomY = Math.floor(Math.random() * 200);
+            flower2.drawTwo(randomX + 50, randomY + 470);
+        }
+    }
     function drawHome() {
         A_10_2.crc2.restore();
         A_10_2.crc2.beginPath();
@@ -139,79 +162,6 @@ var A_10_2;
         A_10_2.crc2.fillRect(250, 640, 100, 10);
         A_10_2.crc2.closePath();
         A_10_2.crc2.save();
-    }
-    // red Flower
-    function drawFlowerRed() {
-        var horizon = A_10_2.crc2.canvas.height * golden;
-        var posX = Math.floor(Math.random() * A_10_2.crc2.canvas.width);
-        var posY = horizon + Math.floor(Math.random() * 250);
-        //Stiel
-        A_10_2.crc2.beginPath();
-        A_10_2.crc2.strokeStyle = "darkgreen";
-        A_10_2.crc2.fillStyle = "darkgreen";
-        A_10_2.crc2.fillRect(posX, posY, 4, 70);
-        //leaf
-        A_10_2.crc2.moveTo(posX, posY + 50);
-        A_10_2.crc2.stroke();
-        A_10_2.crc2.fill();
-        A_10_2.crc2.save();
-        //color leafs
-        A_10_2.crc2.translate(posX, posY);
-        for (var i = 0; i < 15; i++) {
-            A_10_2.crc2.rotate(Math.PI * 2 / 5);
-            A_10_2.crc2.beginPath();
-            A_10_2.crc2.moveTo(10, 10);
-            A_10_2.crc2.lineTo(-7, -10);
-            A_10_2.crc2.bezierCurveTo(-10, -20, 10, -20, 10, -10);
-            A_10_2.crc2.closePath();
-            A_10_2.crc2.fillStyle = "red";
-            A_10_2.crc2.fill();
-        }
-        A_10_2.crc2.restore();
-        A_10_2.crc2.save();
-        A_10_2.crc2.translate(posX, posY);
-        A_10_2.crc2.beginPath();
-        A_10_2.crc2.arc(0, 0, 7, 0, 2 * Math.PI);
-        A_10_2.crc2.closePath();
-        A_10_2.crc2.fillStyle = "black";
-        A_10_2.crc2.fill();
-        A_10_2.crc2.restore();
-    }
-    function drawFlowerYellow() {
-        var horizon = A_10_2.crc2.canvas.height * golden;
-        var posX = Math.floor(Math.random() * A_10_2.crc2.canvas.width);
-        var posY = horizon + Math.floor(Math.random() * 250);
-        //Stiel
-        A_10_2.crc2.beginPath();
-        A_10_2.crc2.strokeStyle = "darkgreen";
-        A_10_2.crc2.fillStyle = "darkgreen";
-        A_10_2.crc2.fillRect(posX, posY, 4, 70);
-        A_10_2.crc2.moveTo(posX, posY + 50);
-        A_10_2.crc2.stroke();
-        A_10_2.crc2.fill();
-        A_10_2.crc2.save();
-        A_10_2.crc2.translate(posX, posY);
-        for (var i = 80; i > 8; i -= 8) {
-            A_10_2.crc2.rotate(45 * Math.PI / 20);
-            A_10_2.crc2.beginPath();
-            A_10_2.crc2.moveTo(10, 20);
-            A_10_2.crc2.bezierCurveTo(-12, -25, 12, -25, 7, -10);
-            A_10_2.crc2.fillStyle = "RGB(232,211,10";
-            A_10_2.crc2.strokeStyle = "RGB(232,211,10";
-            A_10_2.crc2.fill();
-            A_10_2.crc2.stroke();
-        }
-        A_10_2.crc2.restore();
-        //Farbe
-        A_10_2.crc2.save();
-        A_10_2.crc2.beginPath();
-        moveTo(posX + 10, posY + 20);
-        A_10_2.crc2.arc(posX, posY, 5, 0, 2 * Math.PI);
-        A_10_2.crc2.fillStyle = "RGB(98,47,0";
-        A_10_2.crc2.strokeStyle = "RGB(98,47,0";
-        A_10_2.crc2.fill();
-        A_10_2.crc2.stroke();
-        A_10_2.crc2.restore();
     }
     function update() {
         //console.log("update");

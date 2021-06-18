@@ -1,4 +1,4 @@
-namespace A_10_2 {
+namespace A_11 {
 
     window.addEventListener("load", handleLoad);
 
@@ -20,16 +20,19 @@ namespace A_10_2 {
         drawSun(new Vector(850, 170));
         drawMountains(new Vector(0, horizon), 95, 250, "grey", "white");
         drawMountains(new Vector(0, horizon), 60, 170, "darkgrey", "lightgrey");
-        drawTree(new Vector(150,500));
+        drawTree(new Vector(150,400));
         createFlower();
         drawFlower();
         drawHome();
         
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        createBee(20);
+        createBee(30);
 
         createCloud();
         window.setInterval(update, 20);
+
+        nectarAmount();
+        window.setInterval(nectarAmount, 200);
     }
 
         //Background
@@ -164,14 +167,14 @@ namespace A_10_2 {
 
         function drawFlower(): void {
             for (let flower of flowerArray) {
-                let randomX: number = Math.floor(Math.random() * 900);
+                let randomX: number = Math.floor(Math.random() * 1500);
                 let randomY: number = Math.floor(Math.random() * 250);
-                flower.draw(randomX + 50, randomY + 400)
+                flower.draw(randomX + 50, randomY + 450)
             }
             for (let flower2 of flowerArray) {
-                let randomX: number = Math.floor(Math.random() * 900);
-                let randomY: number = Math.floor(Math.random() * 200);
-                flower2.drawTwo(randomX + 50, randomY + 470);
+                let randomX: number = Math.floor(Math.random() * 1500);
+                let randomY: number = Math.floor(Math.random() * 250);
+                flower2.drawTwo(randomX + 50, randomY + 450);
             }
         }
 
@@ -179,21 +182,21 @@ namespace A_10_2 {
             crc2.restore();
     
             crc2.beginPath();
-            crc2.arc(300, 600, 50, 0, 2 * Math.PI);
+            crc2.arc(300, 400, 50, 0, 2 * Math.PI);
             crc2.fillStyle = "RGB(178,134,92)";
             crc2.fill();
             crc2.closePath();
            
             //Loch
             crc2.beginPath();
-            crc2.arc(300, 620, 10, 0, 2 * Math.PI);
+            crc2.arc(300, 425, 10, 0, 2 * Math.PI);
             crc2.fillStyle = "black";
             crc2.fill();
             crc2.closePath();
             //Ast
             crc2.beginPath();
             crc2.fillStyle = "RGB(94,47,0)";
-            crc2.fillRect(250, 640, 100, 10);
+            crc2.fillRect(250, 440, 100, 10);
             crc2.closePath();
     
             crc2.save();
@@ -225,4 +228,26 @@ function createCloud(): void {
         moveables.push(cloud);
     }
 }
+
+    //Bar
+    let i: number = 0;
+    function nectarAmount(): void {
+        if (i ==0) {
+            i = 1;
+            let bar = document.getElementById("bar");
+            let width = 1;
+            let percent = setInterval(frame, 150);
+            function frame(): void {
+                if(width >= 100) {
+                    clearInterval(percent);
+                    i = 100;
+                } else {
+                    width++;
+                    bar.style.width = width + "%";
+                    bar.innerHTML = width + "%";
+                }
+            }
+        }
+    }
+
 }//ende namespace
