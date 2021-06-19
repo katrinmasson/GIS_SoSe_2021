@@ -1,8 +1,8 @@
 namespace A_11 {
     export class Cloud extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        size: number;
+        //public position: Vector;
+        //public velocity: Vector;
+        public size: number;
 
         constructor(_size: number, _position?: Vector) {
             super(_position);
@@ -16,7 +16,7 @@ namespace A_11 {
             this.size = _size;
         }
 
-        draw(): void {
+        public draw(): void {
             let grd = crc2.createLinearGradient(0, 0, 0, 250); //create Gradient
             grd.addColorStop(0, "#FFFFFF");
             grd.addColorStop(1, "#A9E2F3");

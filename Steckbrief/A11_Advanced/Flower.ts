@@ -5,7 +5,7 @@ namespace A_11 {
             //leer
         }
   //red Flowers
-        draw(_x:number, _y: number): void {
+        public draw(_x:number, _y: number): void {
 
             for (let i: number = 0; i < 10; i++) {
     
@@ -47,9 +47,7 @@ namespace A_11 {
         }
     }
         
-    
-    
-        drawTwo(_x: number, _y: number): void {
+        public drawTwo(_x: number, _y: number): void {
             //Stiel
             crc2.beginPath();
             crc2.strokeStyle = "darkgreen";

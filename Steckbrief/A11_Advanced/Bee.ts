@@ -1,9 +1,9 @@
 namespace A_11 {
 
     export class Bee extends Moveable {
-        position: Vector;
-        velocity: Vector;
-        size: number;
+        //position: Vector;
+        //velocity: Vector;
+        public size: number;
 
         constructor(_position?: Vector) {
             super(_position);
@@ -14,10 +14,10 @@ namespace A_11 {
                 this.position = new Vector(290, 430); 
         
             this.velocity = new Vector(1000, 0); 
-            this.velocity.random(120, 30); 
+            this.velocity = Vector.random(120, 30); 
         }
 
-        draw(): void{
+        public draw(): void{
             crc2.save();
             crc2.beginPath();
             //Körper

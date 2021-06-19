@@ -1,9 +1,9 @@
 namespace A_11 { 
-    export class Moveable {
+    export abstract class Moveable {
 
-        position: Vector;
-        velocity: Vector;
-        size: number;
+        public position: Vector;
+        public velocity: Vector;
+        public size: number;
 
         constructor(_position?: Vector) {
 
@@ -12,10 +12,10 @@ namespace A_11 {
             else
             this.position = new Vector(500, 0);
 
-            this.velocity = new Vector(500, 500);
+            this.velocity = new Vector(0, 500);
         }
 
-        move(_timeslice: number): void {
+        public move(_timeslice: number): void {
 
             let offset: Vector = this.velocity.copy();
             offset.scale(_timeslice);
@@ -31,8 +31,6 @@ namespace A_11 {
                 this.position.y -= crc2.canvas.height;
         }
 
-        draw(): void {
-            //console.log("DrawMoveable");
-        }
+        public abstract draw(): void;
     }
 }

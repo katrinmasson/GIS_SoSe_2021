@@ -166,7 +166,6 @@ var A_11;
         A_11.crc2.save();
     }
     function update() {
-        //console.log("update");
         A_11.crc2.clearRect(0, 0, 1000, 750);
         A_11.crc2.putImageData(imgData, 0, 0);
         for (var _i = 0, moveables_1 = moveables; _i < moveables_1.length; _i++) {

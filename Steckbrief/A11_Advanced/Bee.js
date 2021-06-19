@@ -22,7 +22,7 @@ var A_11;
             else
                 _this.position = new A_11.Vector(290, 430);
             _this.velocity = new A_11.Vector(1000, 0);
-            _this.velocity.random(120, 30);
+            _this.velocity = A_11.Vector.random(120, 30);
             return _this;
         }
         Bee.prototype.draw = function () {

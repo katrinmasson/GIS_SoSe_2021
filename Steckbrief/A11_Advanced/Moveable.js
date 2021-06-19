@@ -6,7 +6,7 @@ var A_11;
                 this.position = _position;
             else
                 this.position = new A_11.Vector(500, 0);
-            this.velocity = new A_11.Vector(500, 500);
+            this.velocity = new A_11.Vector(0, 500);
         }
         Moveable.prototype.move = function (_timeslice) {
             var offset = this.velocity.copy();
@@ -20,9 +20,6 @@ var A_11;
                 this.position.x -= A_11.crc2.canvas.width;
             if (this.position.y > A_11.crc2.canvas.height)
                 this.position.y -= A_11.crc2.canvas.height;
-        };
-        Moveable.prototype.draw = function () {
-            //console.log("DrawMoveable");
         };
         return Moveable;
     }());

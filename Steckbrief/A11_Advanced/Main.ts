@@ -203,7 +203,6 @@ namespace A_11 {
         }
 
         function update(): void {
-            //console.log("update");
             crc2.clearRect(0, 0, 1000, 750);
             crc2.putImageData(imgData, 0, 0);
     
@@ -212,7 +211,6 @@ namespace A_11 {
                 moveable.draw();
             }
         }  
-   
     //Bees
     function createBee(_amount: number): void {
         for (let i: number = 0; i < 20; i++) {
@@ -220,7 +218,6 @@ namespace A_11 {
             moveables.push(bee);
         }
     }
-
     //Clouds
 function createCloud(): void {
     for(let i: number = 0; i < 1; i++) {
@@ -228,7 +225,6 @@ function createCloud(): void {
         moveables.push(cloud);
     }
 }
-
     //Bar
     let i: number = 0;
     function nectarAmount(): void {
