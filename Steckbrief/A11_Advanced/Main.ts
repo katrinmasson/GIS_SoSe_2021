@@ -168,13 +168,13 @@ namespace A_11 {
         function drawFlower(): void {
             for (let flower of flowerArray) {
                 let randomX: number = Math.floor(Math.random() * 1500);
-                let randomY: number = Math.floor(Math.random() * 250);
-                flower.draw(randomX + 50, randomY + 450)
+                let randomY: number = Math.floor(Math.random() * 200);
+                flower.draw(randomX + 50, randomY + 500)
             }
             for (let flower2 of flowerArray) {
                 let randomX: number = Math.floor(Math.random() * 1500);
                 let randomY: number = Math.floor(Math.random() * 250);
-                flower2.drawTwo(randomX + 50, randomY + 450);
+                flower2.drawTwo(randomX + 50, randomY + 500);
             }
         }
 
